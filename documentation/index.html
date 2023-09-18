@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8">
+          <link rel="icon" href="../content/ui-utils.png">
+          <link rel="stylesheet" href="../css/style.css">
+          <link rel="stylesheet" href="css/style.css">
+          <title>UI-Utils</title>
+     </head>
+     <body>
+          <div class="wrapper">
+               <div class="header">
+                    <p class="title">
+                         <img class="icon" src="../content/ui-utils.png" width="64" height="64" alt="">UI UTILS DOCS
+                    </p>
+                    <div class="links">
+                         <a id="source-code-link" class="large-link" href="../index.html">Main Page</a>
+                    </div>
+               </div>
+               <div class="content">
+                    <div class="short center-div">
+                         <h1 class="center">Overview Of Features</h1>
+                         <p class="center">
+                              UI-Utils has many features, which will be documented here. When opening an inventory / container 
+                              with UI-Utils, you will notice some extra features, here is a list of those features with descriptions:<br />
+                         </p>
+                         <ul>
+                              <li><b>Close without packet</b> - Close your GUI without sending a <code>CloseHandledScreenC2SPacket</code> to the server.</li>
+                              <br />
+                              <li><b>De-sync</b> - Send a <code>CloseHandledScreenC2SPacket</code> without closing your GUI client-side.</li>
+                              <br />
+                              <li>
+                                   <b>Send packets: true / false</b> - When enabled, no GUI related packets will be sent 
+                                   to the server (<code>ClickSlotC2SPacket</code> and <code>ButtonClickC2SPacket</code>.)
+                              </li>
+                              <br />
+                              <li>
+                                   <b>Delay packets: true / false</b> - When enabled, no GUI related packets will be sent 
+                                   to the server (<code>ClickSlotC2SPacket</code> and <code>ButtonClickC2SPacket</code>) until disabled, then, 
+                                   all delayed packets will be sent in the same tick.
+                              </li>
+                              <br />
+                              <li>
+                                   <b>Save GUI</b> - Saves your GUI internally and can be re-opened using a key-binding (default key-binding is 'v',) this 
+                                   works well with the "Close without packet" feature.
+                              </li>
+                              <br />
+                              <li><b>Disconnect and send packets</b> - Sends all queued packets from "Delay packets", then, immediately disconnects from the server.</li>
+                              <br />
+                              <li><b>Fabricate packet</b> - Opens a window that allows you to send any GUI packet any amount of times (see 'Fabricate Packet Feature' for more information.)</li>
+                              <br />
+                              <li><b>Copy GUI Title JSON</b> - Copies your GUI's title as JSON.</li>
+                              <br />
+                              <li><b>Sync Id: ??</b> - Shows your GUI's sync ID.</li>
+                              <br />
+                              <li><b>Revision: ??</b> - Shows your GUI's revision ID.</li>
+                         </ul>
+                         <p class="center">
+                              The text box below is a chat field for chatting or running commands while in a GUI. All of those features can be disabled / enabled by running "^toggleuiutils" in chat.
+                         </p>
+                         <h3 class="center">Fabricate Packet Feature</h3>
+                         <p class="center">
+                              Using the fabricate packet feature, you can create any GUI packet and send it any amount of times. When clicking "Fabricate packet", you will see a window prompting 
+                              you for a packet to send ("Click Slot" or "Button Click",) another window should appear with some fields and a "Send" button when clicking "Click Slot" (<code>ClickSlotC2SPacket</code>), 
+                              which is what will be documented. "Sync Id" and "Revision" should be whatever the "Sync Id" and "Revision" fields in your in-game GUI are. "Slot" should be a numeric ID 
+                              for what slot you want to interact with (most slot ID(s) can be found on the internet.) The "Button" field is what button is being clicked, 0 is usually left click or 
+                              represents no button, 1 is usually right click, it can also represent a hotbar slot (0 - 8) to swap to when using "SWAP" in the "Action" field, in that case, 40 represents your offhand. 
+                              The "Action" field is the type of click slot packet you would like to send, the options are: (PICKUP: click item, PICKUP_ALL: double click item, 
+                              QUICK_MOVE: shift click item, SWAP: swap item to hotbar, CLONE: middle click item, THROW: drop item, QUICK_CRAFT: used for quick crafting.) Clicking "Send" will send that packet. 
+                              Clicking on "Button Click" in the packet option window, you can send a <code>ButtonClickC2SPacket</code>, which can click buttons on a GUI, for example, clicking on an enchantment 
+                              in an enchanting table. "Sync Id" should be the same as the in-game "Sync Id" field in your Minecraft GUI, and "Button Id" should be whatever button you're clicking on (numeric ID starting at zero.)
+                              Clicking "Send" will send that packet. You can send any GUI packet any amount of times by altering the "Times to send" field in any packet GUI. The "Delay" checkbox 
+                              should be checked if you want to queue those packets into the "Delay packets" queue to send later (it will send those packets immediately still if "Delay packets" is off.)
+                         </p>
+                    </div>
+                    <div class="vertical-space"></div>
+                    <div class="short center-div">
+                         <h1 class="center">Building And Installation</h1>
+                         <p class="center">
+                              To get a jar file of UI-Utils, you can either build your own or download a pre-built one on the <a href="../releases/index.html" target="_blank">releases page</a>. To build 
+                              your own jar, go to the link above, then, download a source code archive (ui-utils-x.x.x.tar.gz or ui-utils-x.x.x.zip), extract it, 
+                              then, if you're on Linux, open a terminal in that directory and run:<br /><br />
+                              <code class="align">chmod +x gradlew</code><br />
+                              <code class="align">./gradlew build</code><br /><br />
+                              If you're on Windows, open command prompt in that folder and run:<br /><br />
+                              <code class="align">gradlew build</code><br /><br />
+                              After that, your jar file should be at <code>build/libs/ui-utils-x.x.x.jar</code> which you can then use. Now that you have a jar file (pre-built or self-built,) you can install 
+                              <a href="https://fabricmc.net" target="_blank">FabricMC</a>, then move your jar file into your "mods" directory (create it if it doesn't already exist,) then download 
+                              <a href="https://modrinth.com/mod/fabric-api" target="_blank">Fabric API</a> and move that jar file into your "mods" directory as well. Launch Minecraft and UI-Utils should be installed.
+                         </p>
+                    </div>
+                    <div class="vertical-space"></div>
+               </div>
+               <div class="footer">
+                    <div class="footer-links">
+                         <a href="https://www.youtube.com/@coderxgamer7409" target="_blank"><img src="../content/youtube.png" width="48" height="34" alt="YouTube"></a>
+                         <span class="space"></span>
+                         <a href="https://discord.gg/DfTadNqQEA" target="_blank"><img src="../content/discord.png" width="48" height="37" alt="Discord"></a>
+                         <span class="space"></span>
+                         <a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank"><img src="../content/github.png" width="48" height="27" alt="Github"></a>
+                    </div>
+               </div>
+          </div>
+     </body>
+</html>

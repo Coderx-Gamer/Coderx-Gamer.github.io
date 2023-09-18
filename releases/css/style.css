@@ -1,0 +1,22 @@
+div.release {
+     padding-left: 18px;
+     padding-right: 18px;
+     border: 2px solid #C8C8C8;
+}
+
+div.small-vertical-space {
+     margin-bottom: 50px;
+}
+
+a {
+     color: #C8C8C8;
+}
+
+li {
+     direction: ltf;
+}
+
+.short {
+     position: relative;
+     width: 750px;
+}
