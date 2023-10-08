@@ -6,3 +6,8 @@ code {
 code.align {
      float: left;
 }
+
+.short {
+     position: relative;
+     width: 70%;
+}
