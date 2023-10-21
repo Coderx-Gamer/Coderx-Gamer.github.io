@@ -81,14 +81,18 @@
                     <div class="short center-div">
                          <h1 class="center">Building And Installation</h1>
                          <p class="center">
-                              To get a jar file of UI-Utils, you can either build your own or download a pre-built one on the <a href="../releases/index.html" target="_blank">releases page</a>. To build 
-                              your own jar, go to the link above, then, download a source code archive (ui-utils-x.x.x.tar.gz or ui-utils-x.x.x.zip), extract it, 
+                              To get a jar file of UI-Utils, you can either build your own or download a pre-built one from the <a href="../releases/index.html" target="_blank">releases page</a>. To build 
+                              your own jar file, go to the previous link, then, download a source code archive (ui-utils-x.x.x.tar.gz or ui-utils-x.x.x.zip), extract it, 
                               then, if you're on Linux, open a terminal in that directory and run:<br /><br />
-                              <code class="align">chmod +x gradlew</code><br />
+                              <code class="align">sha256sum -b ./gradle/wrapper/gradle-wrapper.jar</code><br /><br />
+                              You should then visit <a href="https://gradle.org/release-checksums/" target="_blank">https://gradle.org/release-checksums/</a> and make sure the output of the command you 
+                              just ran is on that page (you can press CTRL+F to search a web page.) Now, to build the jar file, open a terminal in the directory you extracted and run:<br /><br />
+                              <code class="align">chmod +x ./gradlew</code><br />
                               <code class="align">./gradlew build</code><br /><br />
-                              If you're on Windows, open command prompt in that folder and run:<br /><br />
+                              If you're on Windows, use a Windows program to get the SHA256 checksum of the <code>./gradle/wrapper/gradle-wrapper.jar</code> file, then make sure 
+                              it is on <a href="https://gradle.org/release-checksums/" target="_blank">this list</a>. Now, to build the jar file, open command prompt in the folder you extracted and run:<br /><br />
                               <code class="align">gradlew build</code><br /><br />
-                              After that, your jar file should be at <code>build/libs/ui-utils-x.x.x.jar</code> which you can then use. Now that you have a jar file (pre-built or self-built,) you can install 
+                              After that, your jar file should be at <code>./build/libs/ui-utils-x.x.x.jar</code> which you can then use. Now that you have a jar file (pre-built or self-built,) you can install 
                               <a href="https://fabricmc.net" target="_blank">FabricMC</a>, then move your jar file into your "mods" directory (create it if it doesn't already exist,) then download 
                               <a href="https://modrinth.com/mod/fabric-api" target="_blank">Fabric API</a> and move that jar file into your "mods" directory as well. Launch Minecraft and UI-Utils should be installed.
                          </p>
