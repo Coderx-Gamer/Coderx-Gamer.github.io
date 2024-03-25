@@ -1,11 +1,8 @@
 div.release {
-     padding-left: 18px;
-     padding-right: 18px;
+     padding-left: 28px;
+     padding-right: 28px;
      border: 2px solid #C8C8C8;
-}
-
-div.small-vertical-space {
-     margin-bottom: 50px;
+     margin-top: 10px;
 }
 
 a, i {
@@ -13,7 +10,8 @@ a, i {
 }
 
 li {
-     direction: ltf;
+     direction: ltr;
+     margin: 10px;
 }
 
 .short {
