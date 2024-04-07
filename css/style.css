@@ -161,6 +161,10 @@ div.content {
      width: 555px;
 }
 
+.total-downloads {
+
+}
+
 .download:hover,
 .download-fabric:hover {
      background-color: #8535ce;
