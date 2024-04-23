@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BreakScript Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/addon/hint/show-hint.min.css" />
+</head>
+<body>
+<label for="code">BreakScript Code:</label>
+<textarea id="code" rows="20" cols="80">// Start writing your BreakScript code here...</textarea>
+<div id="output"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/addon/hint/show-hint.min.js"></script>
+<script src="lang.js"></script>
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    lineNumbers: true,
+    mode: "mrbreaknfix",
+    theme: "default",
+    gutters: ["CodeMirror-lint-markers"],
+    lint: true,
+    hintOptions: {
+      hint: function(editor, options) {
+        var word = options && options.word || /[\w$]+/;
+        var cur = editor.getCursor(), curLine = editor.getLine(cur.line);
+        var start = cur.ch, end = start;
+        while (end < curLine.length && word.test(curLine.charAt(end))) ++end;
+        while (start && word.test(curLine.charAt(start - 1))) --start;
+        var curWord = start !== end && curLine.slice(start, end);
+
+        var list = autocompleteKeywords;
+        var completions = [];
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].indexOf(curWord) === 0) {
+            completions.push(list[i]);
+          }
+        }
+        return {
+          list: completions,
+          from: CodeMirror.Pos(cur.line, start),
+          to: CodeMirror.Pos(cur.line, end)
+        };
+      },
+      completeSingle: false
+    }
+  });
+
+  var autocompleteKeywords = ["execute_command", "teleport_player", "mark_location_with_redstone_block", "give_player_diamonds", "wait", "function"];
+
+  editor.on("change", function(cm) {
+    cm.execCommand("autocomplete");
+  });
+</script>
+</body>
+</html>
