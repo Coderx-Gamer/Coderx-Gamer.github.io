@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    fetchVisits("modrinth");
+});
+/*
+document.addEventListener('DOMContentLoaded', () => {
     fetch('https://api.github.com/repos/coderx-gamer/ui-utils/releases/latest')
         .then(response => response.json())
         .then(data => {
@@ -23,26 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         })
         .catch(error => console.error('Error fetching latest release:', error));
-
-    function fetchTotalDownloads(version) {
+*/
+    function fetchVisits(version) {
         fetch(`https://script.google.com/macros/s/AKfycbxzE2THSYV6FFh11a6FJSedyxtkL_L56NzWHfY6Ahzi8z8xL0fhuhNEv5Sep2buu-7vIA/exec?callback=handleResponse&jsonData={"action":"get_downloads","version":"${version}"}`)
             .then(response => response.text())
             .then(data => {
-                const totalDownloads = JSON.parse(data.match(/handleResponse\((.*)\)/)[1]).total_downloads;
+                // const totalDownloads = JSON.parse(data.match(/handleResponse\((.*)\)/)[1]).total_downloads;
                 const totalVisits = JSON.parse(data.match(/handleResponse\((.*)\)/)[1]).page_visits;
-                const totalDownloadsElement = document.querySelector('.total-downloads');
+                // const totalDownloadsElement = document.querySelector('.total-downloads');
                 const totalVisitsElement = document.querySelector('.total-visits');
 
-                totalDownloadsElement.innerHTML = `UI-Utils has been downloaded from this page <b></b><u>${totalDownloads}</u></b> times`;
+                // totalDownloadsElement.innerHTML = `UI-Utils has been downloaded from this page <b></b><u>${totalDownloads}</u></b> times`;
                 totalVisitsElement.innerHTML = `This page has been visited <b><u>${totalVisits}</u></b> times.`
                 totalVisits.style = "color: #ff00fa"
 
-                totalDownloadsElement.dataset.count = totalDownloads;
+                // totalDownloadsElement.dataset.count = totalDownloads;
 
             })
-            .catch(error => console.error('Error fetching total downloads:', error));
+            .catch(error => console.error('Error fetching total visits:', error));
     }
-
+/*
     // Log download function
     function logDownload(version) {
         fetch(`https://script.google.com/macros/s/AKfycbxzE2THSYV6FFh11a6FJSedyxtkL_L56NzWHfY6Ahzi8z8xL0fhuhNEv5Sep2buu-7vIA/exec?jsonData={"action":"log_download","version":"${version}"}`)
@@ -51,3 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error logging download:', error));
     }
 });
+*/
