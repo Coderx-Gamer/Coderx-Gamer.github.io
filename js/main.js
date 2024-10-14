@@ -1,6 +1,55 @@
+function fadeInPatreonButtons() {
+//     wait 1 second
+    setTimeout(() => {
+//         fade in the patreon buttons
+        document.querySelector('.patreon').style.opacity = 1;
+    }, 1500);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchVisits("modrinth");
+    fadeInPatreonButtons();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const patreonLink = document.querySelector('.patreon');
+    let tooltip;
+
+    // Create the tooltip element once
+    tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    tooltip.innerHTML = 'Join for early access and to support me!';
+    tooltip.style.position = 'absolute';
+    tooltip.style.opacity = '0';
+    tooltip.style.transition = 'opacity 0.5s ease';
+    tooltip.style.pointerEvents = 'none';
+
+    document.body.appendChild(tooltip);
+
+    patreonLink.addEventListener('mouseover', function() {
+        const rect = patreonLink.getBoundingClientRect();
+        tooltip.style.left = `${rect.left + window.scrollX}px`;
+        tooltip.style.top = `${rect.top + window.scrollY - tooltip.offsetHeight - 10}px`;
+
+        // match the opacity of the document.querySelector('.patreon').style.opacity, in account for the transition
+        let opacity = window.getComputedStyle(document.querySelector('.patreon')).getPropertyValue('opacity');
+        // offset opacity by transition progress
+        opacity = Math.min(1, parseFloat(opacity) );
+        // keep updating if the opacity is not yet 1
+        if (opacity < 1) {
+            setTimeout(() => {
+                patreonLink.dispatchEvent(new MouseEvent('mouseover'));
+            }, 50);
+        }
+
+        tooltip.style.opacity = opacity;
+    });
+
+    patreonLink.addEventListener('mouseout', function() {
+        tooltip.style.opacity = '0';
+    });
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch('https://api.github.com/repos/coderx-gamer/ui-utils/releases/latest')
