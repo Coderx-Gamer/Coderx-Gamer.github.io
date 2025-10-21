@@ -9,7 +9,7 @@ div.wrapper {
 }
 
 
-a,p,li {
+a,p,li,i {
      font-family: monospace;
      font-size: 1.1em;
      color: #C8C8C8;
@@ -19,15 +19,8 @@ p {
      font-size: 1.25em;
 }
 
-h1 {
+h1, h2, h3 {
      font-family: monospace;
-     font-size: 2.5em;
-     color: #C8C8C8;
-}
-
-h3 {
-     font-family: monospace;
-     font-size: 1.6em;
      color: #C8C8C8;
 }
 

@@ -11,3 +11,41 @@ code.align {
      position: relative;
      width: 70%;
 }
+
+.markdown img {
+     max-width: 800px;
+     height: auto;
+}
+
+.header {
+     position: fixed;
+     top: 0;
+     left: 0;
+     height: 120px;
+     width: 100%;
+     background-color: #1A1A1A;
+}
+
+.footer {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     height: 60px;
+     width: 100%;
+     background-color: #2A2A2A;
+}
+
+#docs {
+     position: absolute;
+     top: 120px;
+     bottom: 60px;
+     left: 0;
+     right: 0;
+     overflow-y: auto;
+     background-color: #3A3A3A;
+}
+
+.markdown {
+     width: 50%;
+     margin: 0 auto;
+}
