@@ -250,11 +250,15 @@ small {
 
 .patreon {
 /*     force the div to the bottom right*/
-     position: absolute;
+     /*position: absolute;
      bottom: 0;
      right: 0;
      margin-right: 6px;
-     margin-bottom: 6px;
+     margin-bottom: 6px;*/
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
 
      background-color: #c902ff;
      border: none;
@@ -263,10 +267,11 @@ small {
      font-size: 16px;
      border-radius: 8px;
      outline: none;
+     height: 30px;
      /*display: none;*/
-     opacity: 0;
+     /*opacity: 0;*/
      z-index: 100;
-     transition: opacity 2s ease-in;
+     /*transition: opacity 2s ease-in;*/
 }
 
 .tooltip {
