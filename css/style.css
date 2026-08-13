@@ -721,27 +721,6 @@ h1 + .eyebrow {
      margin: 0.4rem 0;
 }
 
-/* cookie notice on the privacy policy */
-
-.cookie-banner {
-     position: fixed;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     z-index: 25;
-     display: flex;
-     flex-wrap: wrap;
-     align-items: center;
-     justify-content: center;
-     gap: 1rem;
-     padding: 1rem 1.25rem;
-     background-color: var(--surface-2);
-     border-top: 1px solid var(--border);
-     font-size: 0.95rem;
-     color: var(--muted);
-     text-align: center;
-}
-
 /* standing warning, e.g. the unsupported builds on the releases page */
 
 .notice {
@@ -769,7 +748,20 @@ h1 + .eyebrow {
 }
 
 .ad-slot {
-     margin-top: 3.5rem;
+     display: block;
+     margin-top: 5rem;
+     padding-top: 1.5rem;
+     border-top: 1px solid var(--border);
+}
+
+/* ads must be distinguishable from the content around them */
+.ad-label {
+     margin: 0 0 0.75rem;
+     font-family: var(--mono);
+     font-size: 0.78rem;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     color: var(--muted);
 }
 
 /* code */
