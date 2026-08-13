@@ -1,20 +1,67 @@
-div.release {
-     padding-left: 28px;
-     padding-right: 28px;
-     border: 2px solid #C8C8C8;
-     margin-top: 10px;
+.release {
+     border: 1px solid var(--border);
+     border-radius: var(--radius);
+     background-color: var(--surface);
+     padding: 1.25rem 1.5rem;
+     margin-bottom: 1.5rem;
 }
 
-a, i {
-     color: #C8C8C8;
+.release h2 {
+     margin: 0;
+     font-size: 1.2rem;
 }
 
-li {
-     direction: ltr;
-     margin: 10px;
+.release h2 a {
+     text-decoration: none;
 }
 
-.short {
-     position: relative;
-     width: 750px;
+.release time {
+     display: inline-block;
+     margin: 0.25rem 0.6rem 0 0;
+     color: var(--muted);
+     font-family: var(--mono);
+     font-size: 0.9rem;
+}
+
+.release-age {
+     margin-right: 0.6rem;
+     font-family: var(--mono);
+     font-size: 0.9rem;
+     color: var(--muted);
+}
+
+.release-age::before {
+     content: "· ";
+}
+
+/* every build on this page is an old one — say so on each of them */
+.release-tag {
+     display: inline-block;
+     padding: 0.1rem 0.45rem;
+     background-color: rgba(232, 184, 63, 0.1);
+     font-family: var(--mono);
+     font-size: 0.8rem;
+     letter-spacing: 0.06em;
+     text-transform: uppercase;
+     color: var(--warn);
+     vertical-align: 2px;
+}
+
+.release p {
+     white-space: pre-line;
+     word-break: break-word;
+}
+
+.release-assets {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.5rem;
+     border-top: 1px solid var(--border);
+     padding-top: 1.25rem;
+}
+
+.release-assets .btn {
+     padding: 0.6rem 1.2rem;
+     font-size: 0.9rem;
+     font-weight: normal;
 }
