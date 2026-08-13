@@ -3,52 +3,209 @@
 <html lang="en">
      <head>
           <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="color-scheme" content="dark">
+          <meta name="theme-color" content="#100d15">
           <meta name="author" content="Coderx Gamer">
-          <meta name="description" content="Minecraft UI-Utils website.">
+          <meta name="description" content="UI-Utils documentation: what every button does and how to use the mod.">
           <meta name="keywords" content="ui utils, ui-utils, uiutils, ui-utils download, minecraft, delay packets, delay packets mod, minecraft gui, plugin debugger, download, mrbreaknfix, coderx-gamer, coderx gamer, MrBreakNFix, mr break fix, ui utils download minecraft, ui utils, shulker, ui-utils download, 1.21.1">
-          <link rel="icon" href="../content/ui-utils.png">
-          <link rel="stylesheet" href="../css/style.css">
-          <link rel="stylesheet" href="css/style.css">
-          <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
-          <title>UI-Utils</title>
+          <link rel="icon" href="/content/ui-utils.png">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+          <link rel="stylesheet" href="/css/style.css">
+          <script defer src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+          <script defer src="/js/site.js"></script>
+          <title>Documentation | UI-Utils</title>
      </head>
      <body>
+          <a class="skip-link" href="#main">Skip to content</a>
           <div class="wrapper">
-               <div class="header">
-                    <p class="title">
-                         <a href="../">
-                              <img class="icon" src="../content/ui-utils.png" width="64" height="64" alt="">UI UTILS
+               <header class="header">
+                    <div class="header-inner">
+                         <a class="brand" href="/">
+                              <img src="/content/ui-utils.png" width="32" height="32" alt="">UI-UTILS
                          </a>
-                    </p>
-                    <div class="links">
-                         <a id="source-code-link" class="large-link" href="../">Main Page</a>
+                         <nav class="nav" aria-label="Main">
+                              <a href="/">Download</a>
+                              <a href="/releases/">Legacy</a>
+                              <a href="/documentation/" aria-current="page">Documentation</a>
+                              <a href="/contact/">Contact</a>
+                         </nav>
                     </div>
-               </div>
-               <div id="docs">
-                    <div id="docs-content" class="markdown">
-                         <i>Source: <a href="https://github.com/Coderx-Gamer/ui-utils/blob/main/README.md" target="_blank">README.md</a></i>
-                    </div>
-               </div>
-               <div class="footer">
-                    <div class="footer-links">
-                         <a href="https://www.youtube.com/@coderxgamer" target="_blank"><img src="../content/youtube.png" width="48" height="34" alt="YouTube"></a>
-                         <span class="space"></span>
-                         <a href="https://discord.gg/DfTadNqQEA" target="_blank"><img src="../content/discord.png" width="48" height="37" alt="Discord"></a>
-                         <span class="space"></span>
-                         <a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank"><img src="../content/github.png" width="48" height="27" alt="Github"></a>
-                    </div>
-               </div>
-          </div>
-          <script>
-               const converter = new showdown.Converter()
+               </header>
 
-               const readmeUrl = 'https://raw.githubusercontent.com/Coderx-Gamer/ui-utils/refs/heads/main/README.md'
-               fetch(readmeUrl)
-               .then(content => content.text())
-               .then(content => {
-                    const html = converter.makeHtml(content)
-                    const prevHtml = document.getElementById('docs-content').innerHTML
-                    document.getElementById('docs-content').innerHTML = html + prevHtml
+               <main class="content" id="main">
+                    <h1 id="doc-title">Documentation</h1>
+                    <p class="eyebrow" id="doc-path">Overlay widgets, commands, keybindings</p>
+                    <p class="doc-up" id="doc-up" hidden><a href="?page=OverlayOverview.md" data-doc="OverlayOverview.md">← Overlay overview</a></p>
+                    <div id="docs-content" class="markdown">
+                         <p class="muted">Loading documentation…</p>
+                    </div>
+                    <p class="muted doc-source">
+                         Source: <a id="doc-source" href="https://github.com/ui-utils/docs" target="_blank" rel="noopener">ui-utils/docs</a>
+                    </p>
+               </main>
+
+               <footer class="footer">
+                    <div class="footer-inner">
+                         <div class="footer-about">
+                              <h2>UI-Utils</h2>
+                              <p>A FabricMC mod for inspecting and debugging Minecraft GUIs, made by MrBreakNFix and Coderx Gamer.</p>
+                              <div class="footer-social">
+                                   <a href="https://www.youtube.com/@coderxgamer" target="_blank" rel="noopener"><img src="/content/youtube.png" width="28" height="20" alt="YouTube"></a>
+                                   <a href="https://discord.gg/DfTadNqQEA" target="_blank" rel="noopener"><img src="/content/discord.png" width="28" height="22" alt="Discord"></a>
+                                   <a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank" rel="noopener"><img src="/content/github.png" width="28" height="16" alt="GitHub"></a>
+                              </div>
+                         </div>
+                         <div>
+                              <h2>Site</h2>
+                              <ul>
+                                   <li><a href="/">Download</a></li>
+                                   <li><a href="/releases/">Legacy releases</a></li>
+                                   <li><a href="/documentation/">Documentation</a></li>
+                                   <li><a href="/contact/">Contact</a></li>
+                                   <li><a href="/privacy-policy.html">Privacy policy</a></li>
+                              </ul>
+                         </div>
+                         <div>
+                              <h2>Downloads</h2>
+                              <ul>
+                                   <li><a href="https://www.curseforge.com/minecraft/mc-mods/uiutils" target="_blank" rel="noopener">UI-Utils</a></li>
+                                   <li><a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">Fabric Loader</a></li>
+                                   <li><a href="https://modrinth.com/mod/fabric-api/" target="_blank" rel="noopener">Fabric API</a></li>
+                              </ul>
+                         </div>
+                         <div>
+                              <h2>Community</h2>
+                              <ul>
+                                   <li><a href="https://discord.gg/DfTadNqQEA" target="_blank" rel="noopener">Discord</a></li>
+                                   <li><a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank" rel="noopener">GitHub</a></li>
+                                   <li><a href="https://www.youtube.com/@coderxgamer" target="_blank" rel="noopener">YouTube</a></li>
+                                   <li><a href="/support/">Support the project</a></li>
+                              </ul>
+                         </div>
+                    </div>
+                    <div class="footer-bottom">
+                         <p>© <span id="year">2026</span> UI-Utils.com · MrBreakNFix &amp; Coderx Gamer. All rights reserved.</p>
+                    </div>
+               </footer>
+          </div>
+
+          <script>
+               // The docs are a repo of linked markdown files, not one page. Every .md link
+               // inside a page is rewritten to ?page=<path> and handled here, so readers stay
+               // on the site instead of being thrown out to GitHub mid-sentence.
+               // showdown is deferred, so wait for it before converting.
+               document.addEventListener('DOMContentLoaded', () => {
+                    const RAW = 'https://raw.githubusercontent.com/ui-utils/docs/main/'
+                    const BLOB = 'https://github.com/ui-utils/docs/blob/main/'
+                    const HOME = 'OverlayOverview.md'
+
+                    const converter = new showdown.Converter({
+                         tables: true, strikethrough: true, ghCodeBlocks: true, simpleLineBreaks: false
+                    })
+                    const docs = document.getElementById('docs-content')
+                    const titleEl = document.getElementById('doc-title')
+                    const pathEl = document.getElementById('doc-path')
+                    const upEl = document.getElementById('doc-up')
+                    const sourceEl = document.getElementById('doc-source')
+
+                    // Whatever lands in ?page=, only ever fetch a markdown file from inside
+                    // the docs repo: no traversal, no other host.
+                    function safePath(path) {
+                         const clean = String(path || '').replace(/^\/+/, '')
+                         const ok = /^[\w.-]+(\/[\w.-]+)*\.md$/.test(clean) && !clean.includes('..')
+                         return ok ? clean : HOME
+                    }
+
+                    // Links in a page are relative to the file they live in, so resolve
+                    // against that file, not against this site.
+                    function resolve(href, from) {
+                         try { return new URL(href, RAW + from) } catch (e) { return null }
+                    }
+
+                    function rewrite(from) {
+                         docs.querySelectorAll('a[href]').forEach(a => {
+                              const href = a.getAttribute('href')
+                              if (!href || href.startsWith('#')) return
+
+                              const url = resolve(href, from)
+                              if (!url) return
+
+                              if (url.href.startsWith(RAW)) {
+                                   const rel = url.href.slice(RAW.length).split(/[?#]/)[0]
+                                   if (/\.md$/.test(rel)) {
+                                        a.href = '?page=' + rel
+                                        a.dataset.doc = rel
+                                        return
+                                   }
+                                   a.href = BLOB + rel // a folder or a non-markdown file
+                              }
+                              a.target = '_blank'
+                              a.rel = 'noopener'
+                         })
+
+                         docs.querySelectorAll('img[src]').forEach(img => {
+                              const url = resolve(img.getAttribute('src'), from)
+                              if (url) img.src = url.href
+                         })
+                    }
+
+                    function load(path) {
+                         const file = safePath(path)
+                         docs.innerHTML = '<p class="muted">Loading documentation…</p>'
+
+                         fetch(RAW + file)
+                                 .then(res => {
+                                      if (!res.ok) throw new Error('HTTP ' + res.status)
+                                      return res.text()
+                                 })
+                                 .then(markdown => {
+                                      docs.innerHTML = converter.makeHtml(markdown)
+
+                                      // the file's own title becomes the page heading, so it
+                                      // isn't printed twice
+                                      const heading = docs.querySelector('h1')
+                                      titleEl.textContent = heading ? heading.textContent.trim() : 'Documentation'
+                                      document.title = titleEl.textContent + ' | UI-Utils'
+                                      if (heading) heading.remove()
+
+                                      pathEl.textContent = file
+                                      upEl.hidden = file === HOME
+                                      sourceEl.textContent = file
+                                      sourceEl.href = BLOB + file
+                                      rewrite(file)
+                                 })
+                                 .catch(error => {
+                                      console.error('Could not load documentation:', error)
+                                      docs.textContent = 'Could not load this page. '
+                                      const link = document.createElement('a')
+                                      link.href = BLOB + file
+                                      link.target = '_blank'
+                                      link.rel = 'noopener'
+                                      link.textContent = 'Read it on GitHub instead.'
+                                      docs.appendChild(link)
+                                 })
+                    }
+
+                    function currentPage() {
+                         return new URLSearchParams(location.search).get('page')
+                    }
+
+                    // one listener covers both the in-page links and the overview link above
+                    document.addEventListener('click', event => {
+                         const link = event.target.closest('a[data-doc]')
+                         if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
+
+                         event.preventDefault()
+                         history.pushState({}, '', link.getAttribute('href'))
+                         load(link.dataset.doc)
+                         window.scrollTo(0, 0)
+                    })
+
+                    window.addEventListener('popstate', () => load(currentPage()))
+                    load(currentPage())
                })
           </script>
      </body>

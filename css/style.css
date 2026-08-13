@@ -1,287 +1,857 @@
-div.wrapper {
-     position: absolute;
-     left: 0;
-     top: 0;
-     width: 100%;
-     height: 100%;
-     background-color: #3A3A3A;
-     overflow: hidden;
+:root {
+     /* palette pulled from the mod's own icon: a purpur-purple block */
+     --bg: #16131c;
+     --surface: #201b29;
+     --surface-2: #2a2335;
+     --border: #3a3048;
+     --text: #ece9f2;
+     --muted: #b1a7c4;
+     --accent: #a774c8;
+     --accent-hover: #bd8ddc;
+     --accent-ink: #1a1420;
+     --ahead: #8ed15a;
+     --warn: #e8b83f;
+
+     /* Minecraft's GUI bevel: hard light edge top-left, hard shadow bottom-right */
+     --bevel-light: rgba(255, 255, 255, 0.13);
+     --bevel-dark: rgba(0, 0, 0, 0.45);
+
+     --display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+     --body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+     --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+     --radius: 0;
+     --gap: 1rem;
+     --max: 66rem;
+
+     color-scheme: dark;
 }
 
-
-a,p,li,i {
-     font-family: monospace;
-     font-size: 1.1em;
-     color: #C8C8C8;
+*, *::before, *::after {
+     box-sizing: border-box;
 }
 
-p {
-     font-size: 1.25em;
+html {
+     -webkit-text-size-adjust: 100%;
+     scroll-padding-top: 5rem; /* clears the sticky header on anchor jumps */
+     /* reserve the scrollbar on every page, so the centred header doesn't shift
+        sideways between a page that scrolls and one that doesn't */
+     scrollbar-gutter: stable;
+}
+
+body {
+     margin: 0;
+     background-color: var(--bg);
+     color: var(--text);
+     font-family: var(--body);
+     font-size: 1.0625rem;
+     line-height: 1.65;
+}
+
+img {
+     max-width: 100%;
+     height: auto;
+}
+
+/* the GitHub mark is solid black and disappears on the dark background */
+img[src$="github.png"] {
+     filter: invert(1);
+}
+
+a {
+     color: var(--text);
+}
+
+a:hover {
+     color: #fff;
+}
+
+:focus-visible {
+     outline: 2px solid var(--accent-hover);
+     outline-offset: 3px;
 }
 
 h1, h2, h3 {
-     font-family: monospace;
-     color: #C8C8C8;
+     font-family: var(--display);
+     font-stretch: 118%;
+     font-weight: 700;
+     line-height: 1.15;
+     letter-spacing: -0.015em;
+     text-wrap: balance;
 }
 
-div.center-div {
-     margin: 0 auto;
+p, li {
+     text-wrap: pretty;
+}
+
+hr {
+     border: 0;
+     border-top: 1px solid var(--border);
+     margin: var(--gap) 0;
 }
 
 .center {
      text-align: center;
 }
 
-.short {
-     position: relative;
-     width: 50%;
+.muted {
+     color: var(--muted);
 }
 
-a.large-link {
-     text-decoration: none;
-     font-family: monospace;
-     font-size: 1.3em;
-     font-weight: bold;
-     background-color: #2A2A2A;
-     padding: 6px 18px 6px 18px;
-     color: #C8C8C8;
-     cursor: pointer;
+/* small mono label used above headings and inside the build channels */
+.eyebrow {
+     margin: 0 0 0.5rem;
+     font-family: var(--mono);
+     font-size: 0.82rem;
+     font-weight: 500;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     color: var(--muted);
 }
 
-span.space {
-     margin-right: 100px;
+h1 + .eyebrow {
+     margin-top: -0.4rem;
 }
 
-div.vertical-space {
-     margin-bottom: 75px;
-}
-
-div.header {
+.skip-link {
      position: absolute;
-     left: 0;
-     top: 0;
-     width: 100%;
-     height: 120px;
-     background-color: #1A1A1A;
+     left: -9999px;
 }
 
-img.icon {
-     vertical-align: middle;
-     margin-right: 10px;
-     position: relative;
-     top: -5px;
+.skip-link:focus {
+     left: 0.5rem;
+     top: 0.5rem;
+     z-index: 30;
+     background-color: var(--surface-2);
+     border: 1px solid var(--border);
+     padding: 0.5rem 1rem;
 }
 
-p.title {
-     font-size: 2.75em;
-     font-weight: bold;
-     position: absolute;
-     left: 10px;
-     top: -20px;
-}
+/* page frame: header / content / footer, footer pinned to the bottom */
 
-div.links {
-     position: absolute;
-     left: 10px;
-     top: 89px;
-}
-
-div.content {
-     position: absolute;
-     left: 0;
-     top: 120px;
-     width: 100%;
-     height: calc(100% - 180px);
-     overflow: scroll;
-}
-
-div.footer {
-     position: absolute;
-     left: 0;
-     top: calc(100% - 60px);
-     width: 100%;
-     height: 60px;
-     background-color: #2A2A2A;
-}
-
-div.footer-links {
-     position: absolute;
-     left: 10px;
-     top: 10px;
-}
-
-div.content::-webkit-scrollbar {
-  width: 6px;
-}
-
-div.content::-webkit-scrollbar-track {
-  background: none;
-}
-
-div.content::-webkit-scrollbar-thumb {
-  background: #808080;
-}
-
-div.content {
-  scrollbar-color: #808080 transparent;
-}
-
-div.content {
-     position: absolute;
-     left: 0;
-     top: 120px;
-     width: 100%;
-     height: calc(100% - 180px);
-     overflow: auto;
-}
-
-
-.download,
-.download-fabric{
-     background-color: #004b6a;
-     border: none;
-     color: #C8C8C8;
-     padding: 15px 32px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     font-size: 16px;
-     cursor: pointer;
-     border-radius: 8px;
-     outline: none;
-     transition: background-color 0.4s ease-in;
-     margin: 10px 10px 10px 30px;
-     width: 555px;
-}
-
-.total-downloads {
-
-}
-
-.download:hover,
-.download-fabric:hover {
-     background-color: #8535ce;
-}
-
-.release-info{
-     white-space: pre-line;
-}
-
-.pdiv {
+.wrapper {
      display: flex;
-     justify-content: space-between;
-     white-space: pre-line;
-}
-
-.container {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
-
-div.content::-webkit-scrollbar {
-     width: 6px;
-}
-
-div.content::-webkit-scrollbar-track {
-     background: none;
-}
-
-div.content::-webkit-scrollbar-thumb {
-     background: #808080;
-}
-
-div.content {
-     scrollbar-color: #808080 transparent;
-}
-
-.download-wrapper {
-     display: flex;
-     justify-content: center;
      flex-direction: column;
-     align-items: center;
-     margin: 45px auto;
-     border: 2px solid #555;
-     border-radius: 10px;
-     padding: 20px;
-     width: fit-content;
+     min-height: 100vh;
+     min-height: 100dvh;
 }
+
+.content > h1 {
+     margin: 0 0 0.5rem;
+     font-size: clamp(2rem, 5vw, 2.9rem);
+     font-weight: 800;
+     text-transform: uppercase;
+}
+
+.content > h1 + .eyebrow {
+     margin-bottom: 1.25rem;
+}
+
+.content {
+     flex: 1;
+     width: 100%;
+     max-width: var(--max);
+     margin: 0 auto;
+     padding: 2.5rem 1.25rem 4rem;
+}
+
+/* header */
+
+.header {
+     position: sticky;
+     top: 0;
+     z-index: 20;
+     background-color: #100d15;
+     border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+     max-width: var(--max);
+     margin: 0 auto;
+     padding: 0.7rem 1.25rem;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: space-between;
+     gap: 0.75rem;
+}
+
+.brand {
+     display: flex;
+     align-items: center;
+     gap: 0.6rem;
+     font-family: var(--display);
+     font-stretch: 118%;
+     font-size: 1.2rem;
+     font-weight: 800;
+     letter-spacing: 0.04em;
+     text-decoration: none;
+}
+
+.brand img {
+     width: 32px;
+     height: 32px;
+}
+
+.nav {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.15rem;
+}
+
+.nav a {
+     text-decoration: none;
+     font-family: var(--mono);
+     font-size: 0.95rem;
+     padding: 0.45rem 0.8rem;
+     border: 1px solid transparent;
+     color: var(--muted);
+}
+
+.nav a:hover {
+     background-color: var(--surface-2);
+     color: var(--text);
+}
+
+.nav a[aria-current="page"] {
+     background-color: var(--surface-2);
+     border-color: var(--border);
+     color: var(--text);
+}
+
+/* footer */
+
+.footer {
+     background-color: var(--surface);
+     border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+     max-width: var(--max);
+     margin: 0 auto;
+     padding: 2.5rem 1.25rem;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+     gap: 2rem;
+}
+
+.footer h2 {
+     margin: 0 0 0.75rem;
+     font-family: var(--mono);
+     font-weight: 500;
+     font-size: 0.82rem;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     color: var(--muted);
+}
+
+.footer-about h2 {
+     font-family: var(--display);
+     font-size: 1.25rem;
+     font-weight: 800;
+     letter-spacing: 0.04em;
+     text-transform: none;
+     color: var(--text);
+}
+
+.footer ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+}
+
+.footer li {
+     margin-bottom: 0.4rem;
+}
+
+.footer a {
+     text-decoration: none;
+     font-size: 1rem;
+}
+
+.footer a:hover {
+     text-decoration: underline;
+}
+
+.footer-about p {
+     margin: 0;
+     font-size: 0.98rem;
+     color: var(--muted);
+     max-width: 22rem;
+}
+
+.footer-social {
+     display: flex;
+     gap: 1rem;
+     align-items: center;
+     margin-top: 0.9rem;
+}
+
+.footer-social img {
+     display: block;
+     width: 28px;
+}
+
+.footer-bottom {
+     border-top: 1px solid var(--border);
+     padding: 1rem 1.25rem;
+     text-align: center;
+     font-size: 0.9rem;
+     color: var(--muted);
+}
+
+.footer-bottom p {
+     margin: 0;
+}
+
+/* buttons — flat fill with a hard Minecraft-style bevel, no radius */
+
+.btn {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.5rem;
+     padding: 0.85rem 1.7rem;
+     border: 0;
+     font-family: var(--mono);
+     font-size: 1rem;
+     font-weight: 600;
+     text-decoration: none;
+     text-align: center;
+     cursor: pointer;
+     box-shadow: inset 2px 2px 0 var(--bevel-light), inset -2px -2px 0 var(--bevel-dark);
+}
+
+.btn:active {
+     box-shadow: inset -2px -2px 0 var(--bevel-light), inset 2px 2px 0 var(--bevel-dark);
+}
+
+.btn-primary {
+     background-color: var(--accent);
+     color: var(--accent-ink);
+}
+
+.btn-primary:hover {
+     background-color: var(--accent-hover);
+     color: var(--accent-ink);
+}
+
+.btn-secondary {
+     background-color: var(--surface-2);
+     color: var(--text);
+}
+
+.btn-secondary:hover {
+     background-color: var(--border);
+     color: var(--text);
+}
+
+/* landing hero */
+
+.hero {
+     padding: 1.5rem 0 1rem;
+}
+
+.hero-head {
+     display: flex;
+     align-items: center;
+     gap: 1.1rem;
+     margin-bottom: 1.25rem;
+}
+
+/* 256px source, drawn at 128 — 2x for high-density screens, nothing wasted */
+.hero .logo {
+     width: 128px;
+     height: 128px;
+     flex-shrink: 0;
+}
+
+@media (max-width: 30rem) {
+     .hero .logo {
+          width: 84px;
+          height: 84px;
+     }
+}
+
+.hero h1 {
+     margin: 0;
+     font-size: clamp(2.6rem, 8.5vw, 4.4rem);
+     font-weight: 800;
+     font-stretch: 125%;
+     letter-spacing: -0.03em;
+     text-transform: uppercase;
+}
+
+.tagline {
+     margin: 0 0 2rem;
+     max-width: 40rem;
+     font-size: 1.2rem;
+     color: var(--muted);
+}
+
+/* build channels: the two download paths, sized by how current they are */
+
+.channels {
+     display: grid;
+     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+     gap: 0.75rem;
+     align-items: stretch;
+}
+
+.channel {
+     display: flex;
+     flex-direction: column;
+     gap: 0.3rem;
+     padding: 1.25rem 1.4rem 1.1rem;
+     background-color: var(--surface);
+     color: var(--text);
+     text-decoration: none;
+     box-shadow: inset 2px 2px 0 var(--bevel-light), inset -2px -2px 0 var(--bevel-dark);
+}
+
+/* .channel sets display, which would otherwise beat the [hidden] UA rule */
+.channel[hidden] {
+     display: none;
+}
+
+.channel:hover {
+     background-color: var(--surface-2);
+     color: var(--text);
+}
+
+.channel:active {
+     box-shadow: inset -2px -2px 0 var(--bevel-light), inset 2px 2px 0 var(--bevel-dark);
+}
+
+.channel-lead {
+     background-color: #2b2038;
+     border-left: 4px solid var(--accent);
+}
+
+.channel-lead:hover {
+     background-color: #362845;
+}
+
+.channel-label {
+     font-family: var(--mono);
+     font-size: 0.85rem;
+     font-weight: 600;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     color: var(--muted);
+}
+
+.channel-lead .channel-label {
+     color: var(--accent);
+}
+
+.channel-version {
+     font-family: var(--display);
+     font-stretch: 125%;
+     font-weight: 800;
+     font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+     line-height: 1;
+     letter-spacing: -0.03em;
+     margin-top: 0.2rem;
+}
+
+.channel-lead .channel-version {
+     font-size: clamp(2.7rem, 7.5vw, 4rem);
+}
+
+.channel-version .unit {
+     display: block;
+     font-family: var(--mono);
+     font-size: 0.85rem;
+     font-weight: 500;
+     font-stretch: normal;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+     color: var(--muted);
+     margin-bottom: 0.35rem;
+}
+
+.channel-meta {
+     font-family: var(--mono);
+     font-size: 0.92rem;
+     color: var(--muted);
+     margin-top: 0.2rem;
+}
+
+.channel-desc {
+     margin-top: 0.5rem;
+     max-width: 26rem;
+     font-size: 1.02rem;
+     color: var(--muted);
+}
+
+/* the delta claim: which build this one is ahead of */
+.ahead {
+     align-self: flex-start;
+     margin-top: 0.45rem;
+     padding: 0.15rem 0.5rem;
+     background-color: rgba(142, 209, 90, 0.12);
+     font-family: var(--mono);
+     font-size: 0.88rem;
+     color: var(--ahead);
+}
+
+/* bottom row of a tile: the action on the left, how old the build is on the right */
+.channel-foot {
+     margin-top: auto;
+     padding-top: 1.5rem;
+     display: flex;
+     flex-direction: column;
+     align-items: stretch;
+     gap: 0.5rem;
+}
+
+/* the tile's action is a real button, so it reads as a download at a glance */
+.channel-go {
+     width: 100%; /* the button owns the tile's full width, so neither label is cramped */
+}
+
+.dl-icon {
+     display: block;
+     flex-shrink: 0;
+}
+
+.channel-age {
+     align-self: flex-end;
+     font-family: var(--mono);
+     font-size: 0.88rem;
+     color: var(--muted);
+     white-space: nowrap;
+}
+
+.channel:hover .btn-primary {
+     background-color: var(--accent-hover);
+}
+
+.channel:hover .btn-secondary {
+     background-color: var(--border);
+}
+
+/* legacy builds: deliberately the quietest thing in the hero */
+.legacy {
+     margin: 1.1rem 0 0;
+     font-size: 0.98rem;
+     color: var(--muted);
+}
+
+.legacy a {
+     color: var(--muted);
+}
+
+.legacy a:hover {
+     color: var(--text);
+}
+
+@media (max-width: 46rem) {
+     .channels {
+          grid-template-columns: minmax(0, 1fr);
+     }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+     .hero > * {
+          animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+     }
+
+     .hero > *:nth-child(2) { animation-delay: 0.06s; }
+     .hero > *:nth-child(3) { animation-delay: 0.12s; }
+     .hero > *:nth-child(4) { animation-delay: 0.18s; }
+
+     .channel, .btn {
+          transition: background-color 0.15s ease;
+     }
+}
+
+@keyframes rise {
+     from { opacity: 0; transform: translateY(10px); }
+}
+
+/* generic section + card grid */
+
+.section {
+     margin-top: 3.5rem;
+}
+
+.section > h2 {
+     margin: 0 0 0.5rem;
+     font-size: 1.8rem;
+     font-weight: 800;
+     text-transform: uppercase;
+     letter-spacing: 0.01em;
+}
+
+.section > .section-intro {
+     margin: 0 0 1.5rem;
+     max-width: 42rem;
+     color: var(--muted);
+}
+
+.card-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+     gap: var(--gap);
+}
+
+.card {
+     display: flex;
+     flex-direction: column;
+     border: 1px solid var(--border);
+     background-color: var(--surface);
+     padding: 1.25rem 1.4rem;
+     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* keeps the "→" link pinned to the bottom of equal-height cards */
+.card > p:last-child {
+     margin-top: auto;
+     padding-top: 0.9rem;
+}
+
+.card h3 {
+     margin: 0 0 0.5rem;
+     font-size: 1.2rem;
+}
+
+.card p {
+     margin: 0;
+     font-size: 1.02rem;
+     color: var(--muted);
+}
+
+.card a {
+     font-family: var(--mono);
+     font-size: 0.95rem;
+     text-decoration: none;
+     color: var(--accent);
+}
+
+.card a:hover {
+     color: var(--accent-hover);
+     text-decoration: underline;
+}
+
+/* step number on the install cards */
+.step-no {
+     display: block;
+     font-family: var(--mono);
+     font-size: 0.82rem;
+     font-weight: 500;
+     letter-spacing: 0.12em;
+     color: var(--accent);
+     margin-bottom: 0.35rem;
+}
+
+/* install steps */
+
+.steps {
+     margin: 0;
+     padding-left: 1.5rem;
+}
+
+.steps li {
+     margin-bottom: 1rem;
+}
+
+.steps li:last-child {
+     margin-bottom: 0;
+}
+
+.steps strong {
+     display: block;
+}
+
+.steps p {
+     margin: 0.25rem 0 0;
+     font-size: 0.9rem;
+     color: var(--muted);
+}
+
+/* documentation: one repo of linked markdown files, read in place */
+
+.doc-up {
+     margin: 0 0 1.5rem;
+     font-family: var(--mono);
+     font-size: 0.9rem;
+}
+
+.doc-up a {
+     color: var(--accent);
+     text-decoration: none;
+}
+
+.doc-up a:hover {
+     color: var(--accent-hover);
+     text-decoration: underline;
+}
+
+.doc-source {
+     margin-top: 2.5rem;
+     font-family: var(--mono);
+     font-size: 0.9rem;
+}
+
+/* long-form prose: documentation and the privacy policy */
+
+.markdown {
+     max-width: 48rem;
+     overflow-wrap: break-word; /* long URLs must not widen the page under the header */
+}
+
+.markdown img {
+     border: 1px solid var(--border);
+}
+
+.markdown h1,
+.markdown h2 {
+     border-bottom: 1px solid var(--border);
+     padding-bottom: 0.3em;
+     margin-top: 2.5rem;
+}
+
+.markdown h3 {
+     margin-top: 2rem;
+}
+
+.markdown li {
+     margin: 0.4rem 0;
+}
+
+/* cookie notice on the privacy policy */
+
+.cookie-banner {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     z-index: 25;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: center;
+     gap: 1rem;
+     padding: 1rem 1.25rem;
+     background-color: var(--surface-2);
+     border-top: 1px solid var(--border);
+     font-size: 0.95rem;
+     color: var(--muted);
+     text-align: center;
+}
+
+/* standing warning, e.g. the unsupported builds on the releases page */
+
+.notice {
+     margin: 1.5rem 0 2.5rem;
+     padding: 1.1rem 1.4rem;
+     background-color: rgba(232, 184, 63, 0.08);
+     border-left: 4px solid var(--warn);
+}
+
+.notice p {
+     margin: 0;
+     color: var(--muted);
+}
+
+.notice p + p {
+     margin-top: 0.6rem;
+}
+
+.notice strong {
+     color: var(--warn);
+}
+
+.notice a {
+     color: var(--text);
+}
+
+.ad-slot {
+     margin-top: 3.5rem;
+}
+
+/* code */
+
+code {
+     background-color: var(--surface-2);
+     border: 1px solid var(--border);
+     padding: 0.1em 0.35em;
+     font-family: var(--mono);
+     font-size: 0.85em;
+     word-break: break-word;
+}
+
+pre {
+     background-color: var(--surface-2);
+     border: 1px solid var(--border);
+     padding: 1rem;
+     overflow-x: auto;
+}
+
+pre code {
+     background: none;
+     border: 0;
+     padding: 0;
+}
+
+/* contact cards */
 
 .person-contact {
      display: flex;
      flex-direction: column;
      align-items: center;
-     border: 2px solid #555;
-     border-radius: 10px;
-     padding: 20px;
-     width: 350px;
+     text-align: center;
+     border: 1px solid var(--border);
+     background-color: var(--surface);
+     padding: 1.5rem;
 }
 
-.general-contact {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     width: 100px;
-     text-align: center;
+.person-contact h3 {
+     margin: 0 0 1rem;
+}
 
+.person-contact > img {
+     width: 8rem;
 }
 
 .contact-info {
      display: flex;
      align-items: center;
-     margin-top: 20px;
-}
-
-.person-contact p {
-     margin-bottom: 20px;
+     gap: 0.75rem;
+     margin-top: 1rem;
+     word-break: break-word;
 }
 
 .contact-info img {
-     margin-right: 30px;
+     width: 24px;
+     flex-shrink: 0;
 }
 
 .contact-info p {
      margin: 0;
+     text-align: left;
 }
 
-small {
-     color: white;
-}
-
-.patreon {
-/*     force the div to the bottom right*/
-     /*position: absolute;
-     bottom: 0;
-     right: 0;
-     margin-right: 6px;
-     margin-bottom: 6px;*/
-
+.breakery, .patreon {
      display: flex;
      align-items: center;
      justify-content: center;
-
-     background-color: #c902ff;
-     border: none;
-     color: white;
-     padding: 5px 32px;
-     font-size: 16px;
-     border-radius: 8px;
-     outline: none;
-     height: 30px;
-     /*display: none;*/
-     /*opacity: 0;*/
-     z-index: 100;
-     /*transition: opacity 2s ease-in;*/
+     background-color: var(--accent);
+     padding: 0.55rem 1.4rem;
+     box-shadow: inset 2px 2px 0 var(--bevel-light), inset -2px -2px 0 var(--bevel-dark);
 }
 
-.tooltip {
-     background-color: #333;
-     color: #fff;
-     font-family: "JetBrains Mono", monospace;
-     padding: 5px 10px;
-     border-radius: 4px;
-     font-size: 14px;
-     transition: opacity 0.3s;
-     opacity: 0.9;
-     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.breakery a, .patreon a {
+     color: var(--accent-ink);
+     font-family: var(--mono);
+     font-size: 1rem;
+     font-weight: 600;
+     text-decoration: none;
+}
+
+.breakery a:hover, .patreon a:hover {
+     color: var(--accent-ink);
+     text-decoration: underline;
 }

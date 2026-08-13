@@ -2,39 +2,100 @@
 <html lang="en">
 <head>
      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="color-scheme" content="dark">
+     <meta name="theme-color" content="#100d15">
      <meta name="author" content="Coderx Gamer">
-     <meta name="description" content="Minecraft UI-Utils website.">
+     <meta name="description" content="Archive of old, unsupported UI-Utils builds. Current releases are on the download page.">
      <meta name="keywords" content="ui utils, ui-utils, uiutils, ui-utils download, minecraft, delay packets, delay packets mod, minecraft gui, plugin debugger, download, mrbreaknfix, coderx-gamer, coderx gamer, MrBreakNFix, mr break fix, ui utils download minecraft, ui utils, shulker, ui-utils download, 1.21.1">
-     <link rel="icon" href="../content/ui-utils.png">
-     <link rel="stylesheet" href="../css/style.css">
-     <link rel="stylesheet" href="css/style.css">
-     <title>UI-Utils</title>
+     <link rel="icon" href="/content/ui-utils.png">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/releases/css/style.css">
+     <script defer src="/js/site.js"></script>
+     <title>Legacy releases | UI-Utils</title>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="wrapper">
-     <div class="header">
-          <p class="title">
-               <a href="../">
-                    <img class="icon" src="../content/ui-utils.png" width="64" height="64" alt="">UI UTILS
+     <header class="header">
+          <div class="header-inner">
+               <a class="brand" href="/">
+                    <img src="/content/ui-utils.png" width="32" height="32" alt="">UI-UTILS
                </a>
+               <nav class="nav" aria-label="Main">
+                    <a href="/">Download</a>
+                    <a href="/releases/" aria-current="page">Legacy</a>
+                    <a href="/documentation/">Documentation</a>
+                    <a href="/contact/">Contact</a>
+               </nav>
+          </div>
+     </header>
+
+     <main class="content" id="main">
+          <h1>Legacy releases</h1>
+          <p class="eyebrow">Archive · unsupported builds</p>
+          <p class="muted">
+               Old GitHub builds, newest first. Kept for reference only.
           </p>
-          <div class="links">
-               <a id="source-code-link" class="large-link" href="../">Main Page</a>
+
+          <div class="notice">
+               <p><strong>Nothing on this page is supported.</strong> These builds are not maintained,
+                    they target old Minecraft versions, and bugs in them will not be fixed.</p>
+               <p>For a build that works today, get the current release from the
+                    <a href="/">download page</a>.</p>
           </div>
-     </div>
-     <div class="content">
-          <div id="releases" class="center-div">
+
+          <div id="releases">
+               <p class="muted">Loading releases…</p>
           </div>
-     </div>
-     <div class="footer">
-          <div class="footer-links">
-               <a href="https://www.youtube.com/@coderxgamer" target="_blank"><img src="../content/youtube.png" width="48" height="34" alt="YouTube"></a>
-               <span class="space"></span>
-               <a href="https://discord.gg/DfTadNqQEA" target="_blank"><img src="../content/discord.png" width="48" height="37" alt="Discord"></a>
-               <span class="space"></span>
-               <a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank"><img src="../content/github.png" width="48" height="27" alt="Github"></a>
+     </main>
+
+     <footer class="footer">
+          <div class="footer-inner">
+               <div class="footer-about">
+                    <h2>UI-Utils</h2>
+                    <p>A FabricMC mod for inspecting and debugging Minecraft GUIs, made by MrBreakNFix and Coderx Gamer.</p>
+                    <div class="footer-social">
+                         <a href="https://www.youtube.com/@coderxgamer" target="_blank" rel="noopener"><img src="/content/youtube.png" width="28" height="20" alt="YouTube"></a>
+                         <a href="https://discord.gg/DfTadNqQEA" target="_blank" rel="noopener"><img src="/content/discord.png" width="28" height="22" alt="Discord"></a>
+                         <a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank" rel="noopener"><img src="/content/github.png" width="28" height="16" alt="GitHub"></a>
+                    </div>
+               </div>
+               <div>
+                    <h2>Site</h2>
+                    <ul>
+                         <li><a href="/">Download</a></li>
+                         <li><a href="/releases/">Legacy releases</a></li>
+                         <li><a href="/documentation/">Documentation</a></li>
+                         <li><a href="/contact/">Contact</a></li>
+                         <li><a href="/privacy-policy.html">Privacy policy</a></li>
+                    </ul>
+               </div>
+               <div>
+                    <h2>Downloads</h2>
+                    <ul>
+                         <li><a href="https://www.curseforge.com/minecraft/mc-mods/uiutils" target="_blank" rel="noopener">UI-Utils</a></li>
+                         <li><a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">Fabric Loader</a></li>
+                         <li><a href="https://modrinth.com/mod/fabric-api/" target="_blank" rel="noopener">Fabric API</a></li>
+                    </ul>
+               </div>
+               <div>
+                    <h2>Community</h2>
+                    <ul>
+                         <li><a href="https://discord.gg/DfTadNqQEA" target="_blank" rel="noopener">Discord</a></li>
+                         <li><a href="https://github.com/Coderx-Gamer/ui-utils" target="_blank" rel="noopener">GitHub</a></li>
+                         <li><a href="https://www.youtube.com/@coderxgamer" target="_blank" rel="noopener">YouTube</a></li>
+                         <li><a href="/support/">Support the project</a></li>
+                    </ul>
+               </div>
           </div>
-     </div>
+          <div class="footer-bottom">
+               <p>© <span id="year">2026</span> UI-Utils.com · MrBreakNFix &amp; Coderx Gamer. All rights reserved.</p>
+          </div>
+     </footer>
 </div>
 
 <script>
@@ -42,45 +103,63 @@
              .then(response => response.json())
              .then(releases => {
                   const releasesContainer = document.getElementById('releases');
+                  releasesContainer.replaceChildren();
 
                   releases.forEach(release => {
                        const releaseDiv = document.createElement('div');
-                       releaseDiv.classList.add('release', 'short', 'center-div');
+                       releaseDiv.classList.add('release');
 
-                       const title = document.createElement('h3');
+                       const title = document.createElement('h2');
                        const titleLink = document.createElement('a');
                        titleLink.href = release.html_url;
+                       titleLink.target = '_blank';
+                       titleLink.rel = 'noopener';
                        titleLink.textContent = release.name;
                        title.appendChild(titleLink);
                        releaseDiv.appendChild(title);
 
-                       const date = document.createElement('i');
+                       const date = document.createElement('time');
+                       date.dateTime = release.published_at;
                        date.textContent = new Date(release.published_at).toDateString();
                        releaseDiv.appendChild(date);
 
+                       const age = timeAgo(release.published_at);
+                       if (age) {
+                            const ageEl = document.createElement('span');
+                            ageEl.className = 'release-age';
+                            ageEl.textContent = age;
+                            releaseDiv.appendChild(ageEl);
+                       }
+
+                       const legacy = document.createElement('span');
+                       legacy.className = 'release-tag';
+                       legacy.textContent = 'Unsupported';
+                       releaseDiv.appendChild(legacy);
+
                        const description = document.createElement('p');
-                       description.innerHTML = release.body.replace(/\n/g, '<br>');
+                       description.textContent = release.body || 'No release notes.';
                        releaseDiv.appendChild(description);
 
-                       const hr = document.createElement('hr');
-                       releaseDiv.appendChild(hr);
-
-                       release.assets.forEach(asset => {
-                            const link = document.createElement('a');
-                            link.href = asset.browser_download_url;
-                            link.target = '_blank';
-                            link.textContent = asset.name;
-                            releaseDiv.appendChild(link);
-                            releaseDiv.appendChild(document.createElement('br'));
-                            releaseDiv.appendChild(document.createElement('br'))
-                       });
+                       if (release.assets.length) {
+                            const assets = document.createElement('div');
+                            assets.className = 'release-assets';
+                            release.assets.forEach(asset => {
+                                 const link = document.createElement('a');
+                                 link.href = asset.browser_download_url;
+                                 link.className = 'btn btn-secondary';
+                                 link.textContent = `Download ${asset.name}`;
+                                 assets.appendChild(link);
+                            });
+                            releaseDiv.appendChild(assets);
+                       }
 
                        releasesContainer.appendChild(releaseDiv);
-                       releasesContainer.appendChild(document.createElement('br'));
                   });
              })
              .catch(error => {
                   console.error('Error fetching releases:', error);
+                  document.getElementById('releases').textContent =
+                          'Could not load releases. View them on GitHub instead.';
              });
 </script>
 </body>
