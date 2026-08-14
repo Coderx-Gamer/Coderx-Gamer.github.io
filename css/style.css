@@ -747,7 +747,14 @@ h1 + .eyebrow {
      color: var(--text);
 }
 
+/* Hidden until an ad actually fills, so the label and rule never frame empty
+   space — during review, and whenever a slot goes unfilled later. AdSense stamps
+   data-ad-status on the ins element once it has an answer. */
 .ad-slot {
+     display: none;
+}
+
+.ad-slot:has(ins[data-ad-status="filled"]) {
      display: block;
      margin-top: 5rem;
      padding-top: 1.5rem;
